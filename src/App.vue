@@ -1,25 +1,61 @@
 <script>
 import axios from "axios";
+import ActorList from "./components/ActorList.vue";
+import { store } from "./store";
 export default{
-
+  components: {
+    ActorList
+},
+  data(){
+    return{
+      store
+    }
+  },
+  created(){
+    this.store.loading = true;
+    axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
+      this.store.characters = resp.data
+      this.store.loading = false;
+    })
+  }
 }
 </script>
 
 <template>
+<section>
+    <h1>Breaking Bad Api</h1>
 
-  <h1>Ciao funziono</h1>
+    <div class="container">
+      <div class="character-found">Found 62 characters</div>
+      <AppBuffering v-if="store.loading" />
+      <ActorList v-else />
+    </div>
 
-  <div class="container">
-  
-  </div>
+</section>
 
 </template>
 
 <style lang="scss">
 @use "./components/style/general.scss" as *;
 @use "./components/style/partials/variables" as*;
-h1{
-  color: $second-font-color;
+
+section{
+
+  h1{
+    color: $primary-font-color;
+  }
+  .container{
+    background-color: $primary-font-color;
+  
+    .character-found{
+      width: 95%;
+      margin: 1.5rem auto;
+      background-color: $bg-header-color;
+      padding: 1rem 0.5rem;
+      color: $primary-font-color;
+      font-weight: 600;
+    }
+  }
 }
 
 </style>
