@@ -13,6 +13,7 @@ export default{
 
 <style lang="scss" scoped>
     h1{
+        text-align: center;
         font-size: 4rem;
         background-color: red;
         color: black;

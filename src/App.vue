@@ -1,10 +1,12 @@
 <script>
 import axios from "axios";
 import ActorList from "./components/ActorList.vue";
+import AppBuffering from "./components/AppBuffering.vue";
 import { store } from "./store";
 export default{
   components: {
-    ActorList
+    ActorList,
+    AppBuffering,
 },
   data(){
     return{
