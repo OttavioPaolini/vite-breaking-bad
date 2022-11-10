@@ -6,7 +6,7 @@ export default{
 
 <template>
 
-    <h1> PORCO DIOOOOO</h1>
+    <h1>Caricamento in corso...</h1>
 
 </template>
 

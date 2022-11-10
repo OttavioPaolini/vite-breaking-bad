@@ -25,7 +25,10 @@ export default{
 
 <template>
 <section>
+  <div class="logo">
+    <img src="./assets/Breaking_Bad_logo.svg.png" alt="">
     <h1>Breaking Bad Api</h1>
+  </div>
 
     <div class="container">
       <div class="character-found">Found 62 characters</div>
@@ -42,12 +45,19 @@ export default{
 @use "./components/style/partials/variables" as*;
 
 section{
-
+.logo{
+display: flex;
+align-items: center;
+img{
+  height: 100px;
+}
   h1{
     color: $primary-font-color;
   }
+}
   .container{
     background-color: $primary-font-color;
+    padding-top: .5rem;
   
     .character-found{
       width: 95%;
